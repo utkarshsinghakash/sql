@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  database: "record",
+  database: "delta1",
   password: "6tillcock",
 });
 
@@ -83,6 +83,7 @@ app.get("/user/:id/edit", (req, res) => {
 
 app.get("/user/:id/delete", (req, res) => {
   let { id } = req.params;
+  console.log(id);
   let q = `select * from user where id='${id}'`;
   try {
     connection.query(q, (err, results) => {
